@@ -1,0 +1,802 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		444D9AAE2C90C14800D9B79D /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D9AAD2C90C14800D9B79D /* GlobalVars.swift */; };
+		444D9AB02C90E7E100D9B79D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D9AAF2C90E7E100D9B79D /* NotificationsView.swift */; };
+		444D9AB52C9104A400D9B79D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D9AB42C9104A400D9B79D /* HomeView.swift */; };
+		444D9AB72C9104B200D9B79D /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D9AB62C9104B200D9B79D /* DiscoverView.swift */; };
+		444D9AB92C9104C200D9B79D /* BookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D9AB82C9104C200D9B79D /* BookingsView.swift */; };
+		444D9ABB2C9104CE00D9B79D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D9ABA2C9104CE00D9B79D /* ProfileView.swift */; };
+		444D9ABD2C9108F800D9B79D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444D9ABC2C9108F800D9B79D /* Launch Screen.storyboard */; };
+		44715C9D2C94BDB900FDC183 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44715C9C2C94BDB900FDC183 /* AddPostView.swift */; };
+		447806D52C9090F600B2D181 /* Fanclub_ProtoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447806D42C9090F600B2D181 /* Fanclub_ProtoApp.swift */; };
+		447806D72C9090F600B2D181 /* ContainerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447806D62C9090F600B2D181 /* ContainerTabView.swift */; };
+		447806D92C9090F700B2D181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447806D82C9090F700B2D181 /* Assets.xcassets */; };
+		447806DC2C9090F700B2D181 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447806DB2C9090F700B2D181 /* Preview Assets.xcassets */; };
+		44B944852F5A0176002789F1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 44B944842F5A0176002789F1 /* GoogleSignIn */; };
+		44B944872F5A0176002789F1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 44B944862F5A0176002789F1 /* GoogleSignInSwift */; };
+		44B944892F5A07CC002789F1 /* AuthAddInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B944882F5A07C8002789F1 /* AuthAddInfoView.swift */; };
+		44B9448B2F5A0815002789F1 /* AuthOTPLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B9448A2F5A0812002789F1 /* AuthOTPLoginView.swift */; };
+		44B9448E2F5A094B002789F1 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B9448D2F5A0949002789F1 /* AuthVM.swift */; };
+		44B944902F5A3120002789F1 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B9448F2F5A311E002789F1 /* Creator.swift */; };
+		44B944922F5A3245002789F1 /* DiscoverVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B944912F5A3244002789F1 /* DiscoverVM.swift */; };
+		44D026072C99F4040086CFB8 /* SettingsPopupSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D026062C99F4040086CFB8 /* SettingsPopupSubviews.swift */; };
+		44ED140D2C91F6CB00A347C5 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED140C2C91F6CB00A347C5 /* MessagesView.swift */; };
+		44ED140F2C921C8600A347C5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED140E2C921C8600A347C5 /* SettingsView.swift */; };
+		44ED14142C92202200A347C5 /* SearchExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED14132C92202200A347C5 /* SearchExpandedView.swift */; };
+		44ED14162C92384300A347C5 /* NewMeetingSlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED14152C92384300A347C5 /* NewMeetingSlotView.swift */; };
+		A81132E62F623EF5000EEE29 /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81132E52F623EF2000EEE29 /* APIRoutes.swift */; };
+		A81132E82F623EF9000EEE29 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81132E72F623EF7000EEE29 /* APIManager.swift */; };
+		A85CCB382F6B61A300ABA32F /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85CCB372F6B619F00ABA32F /* GlobalFuncs.swift */; };
+		A886817C2F5B3E6600D30045 /* GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886817B2F5B3E6500D30045 /* GoogleSignIn.swift */; };
+		A8B33AE92F6928E800C9A949 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B33AE82F6928E500C9A949 /* EditProfileView.swift */; };
+		A8B33AEC2F69290B00C9A949 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B33AEB2F69290900C9A949 /* ProfileVM.swift */; };
+		A8B33AEE2F692B1000C9A949 /* EditInfluencerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B33AED2F692B0A00C9A949 /* EditInfluencerProfileView.swift */; };
+		A8CA84252F63D88F00B5CE99 /* APIDecoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA84242F63D88D00B5CE99 /* APIDecoders.swift */; };
+		A8CA869D2F63D8DF00B5CE99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA869C2F63D8DE00B5CE99 /* User.swift */; };
+		A8D20BA12F58EAD600C22A7D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D20BA02F58EAD500C22A7D /* AuthView.swift */; };
+		A8D20BD32F58F16D00C22A7D /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BCF2F58F16D00C22A7D /* Nunito-VariableFont_wght.ttf */; };
+		A8D20BD42F58F16D00C22A7D /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB32F58F16D00C22A7D /* Montserrat-SemiBold.ttf */; };
+		A8D20BD52F58F16D00C22A7D /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB62F58F16D00C22A7D /* Montserrat-ThinItalic.ttf */; };
+		A8D20BD62F58F16D00C22A7D /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BA92F58F16D00C22A7D /* Montserrat-ExtraBold.ttf */; };
+		A8D20BD72F58F16D00C22A7D /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC82F58F16D00C22A7D /* Nunito-Medium.ttf */; };
+		A8D20BD82F58F16D00C22A7D /* Nunito-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC92F58F16D00C22A7D /* Nunito-MediumItalic.ttf */; };
+		A8D20BD92F58F16D00C22A7D /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BA52F58F16D00C22A7D /* Montserrat-Black.ttf */; };
+		A8D20BDA2F58F16D00C22A7D /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB52F58F16D00C22A7D /* Montserrat-Thin.ttf */; };
+		A8D20BDB2F58F16D00C22A7D /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BAF2F58F16D00C22A7D /* Montserrat-LightItalic.ttf */; };
+		A8D20BDC2F58F16D00C22A7D /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BCC2F58F16D00C22A7D /* Nunito-SemiBoldItalic.ttf */; };
+		A8D20BDE2F58F16D00C22A7D /* Montserrat-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB82F58F16D00C22A7D /* Montserrat-Italic-VariableFont_wght.ttf */; };
+		A8D20BDF2F58F16D00C22A7D /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC72F58F16D00C22A7D /* Nunito-LightItalic.ttf */; };
+		A8D20BE02F58F16D00C22A7D /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BA72F58F16D00C22A7D /* Montserrat-Bold.ttf */; };
+		A8D20BE12F58F16D00C22A7D /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC02F58F16D00C22A7D /* Nunito-BoldItalic.ttf */; };
+		A8D20BE22F58F16D00C22A7D /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB92F58F16D00C22A7D /* Montserrat-VariableFont_wght.ttf */; };
+		A8D20BE42F58F16D00C22A7D /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BA62F58F16D00C22A7D /* Montserrat-BlackItalic.ttf */; };
+		A8D20BE52F58F16D00C22A7D /* Nunito-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC22F58F16D00C22A7D /* Nunito-ExtraBoldItalic.ttf */; };
+		A8D20BE62F58F16D00C22A7D /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC12F58F16D00C22A7D /* Nunito-ExtraBold.ttf */; };
+		A8D20BE72F58F16D00C22A7D /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC62F58F16D00C22A7D /* Nunito-Light.ttf */; };
+		A8D20BE82F58F16D00C22A7D /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BCA2F58F16D00C22A7D /* Nunito-Regular.ttf */; };
+		A8D20BE92F58F16D00C22A7D /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB12F58F16D00C22A7D /* Montserrat-MediumItalic.ttf */; };
+		A8D20BEA2F58F16D00C22A7D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB22F58F16D00C22A7D /* Montserrat-Regular.ttf */; };
+		A8D20BEB2F58F16D00C22A7D /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB02F58F16D00C22A7D /* Montserrat-Medium.ttf */; };
+		A8D20BEC2F58F16D00C22A7D /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC32F58F16D00C22A7D /* Nunito-ExtraLight.ttf */; };
+		A8D20BED2F58F16D00C22A7D /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BAB2F58F16D00C22A7D /* Montserrat-ExtraLight.ttf */; };
+		A8D20BEE2F58F16D00C22A7D /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BAD2F58F16D00C22A7D /* Montserrat-Italic.ttf */; };
+		A8D20BEF2F58F16D00C22A7D /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BAE2F58F16D00C22A7D /* Montserrat-Light.ttf */; };
+		A8D20BF12F58F16D00C22A7D /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC42F58F16D00C22A7D /* Nunito-ExtraLightItalic.ttf */; };
+		A8D20BF22F58F16D00C22A7D /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BCE2F58F16D00C22A7D /* Nunito-Italic-VariableFont_wght.ttf */; };
+		A8D20BF32F58F16D00C22A7D /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BA82F58F16D00C22A7D /* Montserrat-BoldItalic.ttf */; };
+		A8D20BF42F58F16D00C22A7D /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BAC2F58F16D00C22A7D /* Montserrat-ExtraLightItalic.ttf */; };
+		A8D20BF52F58F16D00C22A7D /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BBD2F58F16D00C22A7D /* Nunito-Black.ttf */; };
+		A8D20BF72F58F16D00C22A7D /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BB42F58F16D00C22A7D /* Montserrat-SemiBoldItalic.ttf */; };
+		A8D20BF82F58F16D00C22A7D /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BC52F58F16D00C22A7D /* Nunito-Italic.ttf */; };
+		A8D20BF92F58F16D00C22A7D /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BAA2F58F16D00C22A7D /* Montserrat-ExtraBoldItalic.ttf */; };
+		A8D20BFA2F58F16D00C22A7D /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BBF2F58F16D00C22A7D /* Nunito-Bold.ttf */; };
+		A8D20BFB2F58F16D00C22A7D /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BCB2F58F16D00C22A7D /* Nunito-SemiBold.ttf */; };
+		A8D20BFC2F58F16D00C22A7D /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D20BBE2F58F16D00C22A7D /* Nunito-BlackItalic.ttf */; };
+		A8D2162E2F6113B600E43617 /* AuthCreatorSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2162D2F6113B000E43617 /* AuthCreatorSignupView.swift */; };
+		A8F458592F6473D1007B51BA /* APIResponseSchemas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F458582F6473CB007B51BA /* APIResponseSchemas.swift */; };
+		A8F4585B2F64A44C007B51BA /* APIRequestSchemas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4585A2F64A448007B51BA /* APIRequestSchemas.swift */; };
+		A8F45AD42F64C274007B51BA /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F45AD32F64C273007B51BA /* ProfileManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		444D9AAD2C90C14800D9B79D /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
+		444D9AAF2C90E7E100D9B79D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		444D9AB42C9104A400D9B79D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		444D9AB62C9104B200D9B79D /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		444D9AB82C9104C200D9B79D /* BookingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsView.swift; sourceTree = "<group>"; };
+		444D9ABA2C9104CE00D9B79D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		444D9ABC2C9108F800D9B79D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		44715C9C2C94BDB900FDC183 /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
+		447806D12C9090F600B2D181 /* Fanclub-Proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fanclub-Proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		447806D42C9090F600B2D181 /* Fanclub_ProtoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fanclub_ProtoApp.swift; sourceTree = "<group>"; };
+		447806D62C9090F600B2D181 /* ContainerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTabView.swift; sourceTree = "<group>"; };
+		447806D82C9090F700B2D181 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		447806DB2C9090F700B2D181 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		44B944882F5A07C8002789F1 /* AuthAddInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAddInfoView.swift; sourceTree = "<group>"; };
+		44B9448A2F5A0812002789F1 /* AuthOTPLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOTPLoginView.swift; sourceTree = "<group>"; };
+		44B9448D2F5A0949002789F1 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
+		44B9448F2F5A311E002789F1 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
+		44B944912F5A3244002789F1 /* DiscoverVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVM.swift; sourceTree = "<group>"; };
+		44D026062C99F4040086CFB8 /* SettingsPopupSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupSubviews.swift; sourceTree = "<group>"; };
+		44ED140C2C91F6CB00A347C5 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		44ED140E2C921C8600A347C5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		44ED14132C92202200A347C5 /* SearchExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExpandedView.swift; sourceTree = "<group>"; };
+		44ED14152C92384300A347C5 /* NewMeetingSlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingSlotView.swift; sourceTree = "<group>"; };
+		A81132E52F623EF2000EEE29 /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
+		A81132E72F623EF7000EEE29 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A85CCB372F6B619F00ABA32F /* GlobalFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
+		A886817B2F5B3E6500D30045 /* GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignIn.swift; sourceTree = "<group>"; };
+		A8B33AE82F6928E500C9A949 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		A8B33AEB2F69290900C9A949 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		A8B33AED2F692B0A00C9A949 /* EditInfluencerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfluencerProfileView.swift; sourceTree = "<group>"; };
+		A8CA84242F63D88D00B5CE99 /* APIDecoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDecoders.swift; sourceTree = "<group>"; };
+		A8CA869C2F63D8DE00B5CE99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A8D20BA02F58EAD500C22A7D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A8D20BA22F58EE7000C22A7D /* Fanclub-Proto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fanclub-Proto.entitlements"; sourceTree = "<group>"; };
+		A8D20BA52F58F16D00C22A7D /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		A8D20BA62F58F16D00C22A7D /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BA72F58F16D00C22A7D /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		A8D20BA82F58F16D00C22A7D /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BA92F58F16D00C22A7D /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A8D20BAA2F58F16D00C22A7D /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BAB2F58F16D00C22A7D /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		A8D20BAC2F58F16D00C22A7D /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BAD2F58F16D00C22A7D /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		A8D20BAE2F58F16D00C22A7D /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		A8D20BAF2F58F16D00C22A7D /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BB02F58F16D00C22A7D /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		A8D20BB12F58F16D00C22A7D /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BB22F58F16D00C22A7D /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		A8D20BB32F58F16D00C22A7D /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		A8D20BB42F58F16D00C22A7D /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BB52F58F16D00C22A7D /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		A8D20BB62F58F16D00C22A7D /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BB82F58F16D00C22A7D /* Montserrat-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		A8D20BB92F58F16D00C22A7D /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		A8D20BBD2F58F16D00C22A7D /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		A8D20BBE2F58F16D00C22A7D /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BBF2F58F16D00C22A7D /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		A8D20BC02F58F16D00C22A7D /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BC12F58F16D00C22A7D /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A8D20BC22F58F16D00C22A7D /* Nunito-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BC32F58F16D00C22A7D /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
+		A8D20BC42F58F16D00C22A7D /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BC52F58F16D00C22A7D /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		A8D20BC62F58F16D00C22A7D /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		A8D20BC72F58F16D00C22A7D /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-LightItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BC82F58F16D00C22A7D /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		A8D20BC92F58F16D00C22A7D /* Nunito-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-MediumItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BCA2F58F16D00C22A7D /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		A8D20BCB2F58F16D00C22A7D /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		A8D20BCC2F58F16D00C22A7D /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		A8D20BCE2F58F16D00C22A7D /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		A8D20BCF2F58F16D00C22A7D /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		A8D20BFD2F58F17400C22A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A8D2162D2F6113B000E43617 /* AuthCreatorSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCreatorSignupView.swift; sourceTree = "<group>"; };
+		A8F458582F6473CB007B51BA /* APIResponseSchemas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseSchemas.swift; sourceTree = "<group>"; };
+		A8F4585A2F64A448007B51BA /* APIRequestSchemas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestSchemas.swift; sourceTree = "<group>"; };
+		A8F45AD32F64C273007B51BA /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		447806CE2C9090F600B2D181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44B944852F5A0176002789F1 /* GoogleSignIn in Frameworks */,
+				44B944872F5A0176002789F1 /* GoogleSignInSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		444D9AB32C91049200D9B79D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20B9F2F58EAD000C22A7D /* Auth */,
+				44ED14122C921FF300A347C5 /* Subviews */,
+				44ED14112C921FE600A347C5 /* Tabs */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		447806C82C9090F600B2D181 = {
+			isa = PBXGroup;
+			children = (
+				447806D32C9090F600B2D181 /* Fanclub-Proto */,
+				447806D22C9090F600B2D181 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		447806D22C9090F600B2D181 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				447806D12C9090F600B2D181 /* Fanclub-Proto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		447806D32C9090F600B2D181 /* Fanclub-Proto */ = {
+			isa = PBXGroup;
+			children = (
+				A886817A2F5B3E6000D30045 /* Controllers */,
+				44B9448C2F5A0940002789F1 /* View Model */,
+				444D9AB32C91049200D9B79D /* Views */,
+				447806D62C9090F600B2D181 /* ContainerTabView.swift */,
+				44ED14102C921FD600A347C5 /* Model */,
+				A8D20BA32F58F14700C22A7D /* Resources */,
+				A8D20BFD2F58F17400C22A7D /* Info.plist */,
+				A8D20BA22F58EE7000C22A7D /* Fanclub-Proto.entitlements */,
+				447806D42C9090F600B2D181 /* Fanclub_ProtoApp.swift */,
+				447806DA2C9090F700B2D181 /* Preview Content */,
+				444D9ABC2C9108F800D9B79D /* Launch Screen.storyboard */,
+			);
+			path = "Fanclub-Proto";
+			sourceTree = "<group>";
+		};
+		447806DA2C9090F700B2D181 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				447806DB2C9090F700B2D181 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		44B9448C2F5A0940002789F1 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8B33AEB2F69290900C9A949 /* ProfileVM.swift */,
+				44B944912F5A3244002789F1 /* DiscoverVM.swift */,
+				44B9448D2F5A0949002789F1 /* AuthVM.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		44ED14102C921FD600A347C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8CA869C2F63D8DE00B5CE99 /* User.swift */,
+				44B9448F2F5A311E002789F1 /* Creator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44ED14112C921FE600A347C5 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				A8B33AE72F6928DA00C9A949 /* Profile */,
+				444D9AB42C9104A400D9B79D /* HomeView.swift */,
+				444D9AB62C9104B200D9B79D /* DiscoverView.swift */,
+				444D9AB82C9104C200D9B79D /* BookingsView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		44ED14122C921FF300A347C5 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				444D9AAF2C90E7E100D9B79D /* NotificationsView.swift */,
+				44ED140C2C91F6CB00A347C5 /* MessagesView.swift */,
+				44ED140E2C921C8600A347C5 /* SettingsView.swift */,
+				44ED14132C92202200A347C5 /* SearchExpandedView.swift */,
+				44ED14152C92384300A347C5 /* NewMeetingSlotView.swift */,
+				44715C9C2C94BDB900FDC183 /* AddPostView.swift */,
+				44D026062C99F4040086CFB8 /* SettingsPopupSubviews.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		A81132E42F6230D4000EEE29 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A81132E52F623EF2000EEE29 /* APIRoutes.swift */,
+				A81132E72F623EF7000EEE29 /* APIManager.swift */,
+				A8F4585A2F64A448007B51BA /* APIRequestSchemas.swift */,
+				A8F458582F6473CB007B51BA /* APIResponseSchemas.swift */,
+				A8CA84242F63D88D00B5CE99 /* APIDecoders.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A886817A2F5B3E6000D30045 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A85CCB372F6B619F00ABA32F /* GlobalFuncs.swift */,
+				444D9AAD2C90C14800D9B79D /* GlobalVars.swift */,
+				A8F45AD22F64C26F007B51BA /* Profile */,
+				A81132E42F6230D4000EEE29 /* API */,
+				A886817B2F5B3E6500D30045 /* GoogleSignIn.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A8B33AE72F6928DA00C9A949 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A8B33AED2F692B0A00C9A949 /* EditInfluencerProfileView.swift */,
+				A8B33AE82F6928E500C9A949 /* EditProfileView.swift */,
+				444D9ABA2C9104CE00D9B79D /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A8D20B9F2F58EAD000C22A7D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A8D2162D2F6113B000E43617 /* AuthCreatorSignupView.swift */,
+				44B9448A2F5A0812002789F1 /* AuthOTPLoginView.swift */,
+				44B944882F5A07C8002789F1 /* AuthAddInfoView.swift */,
+				A8D20BA02F58EAD500C22A7D /* AuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A8D20BA32F58F14700C22A7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20BA42F58F15C00C22A7D /* Fonts */,
+				447806D82C9090F700B2D181 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A8D20BA42F58F15C00C22A7D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20BBC2F58F16D00C22A7D /* Montserrat */,
+				A8D20BD22F58F16D00C22A7D /* Nunito */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A8D20BB72F58F16D00C22A7D /* static */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20BA52F58F16D00C22A7D /* Montserrat-Black.ttf */,
+				A8D20BA62F58F16D00C22A7D /* Montserrat-BlackItalic.ttf */,
+				A8D20BA72F58F16D00C22A7D /* Montserrat-Bold.ttf */,
+				A8D20BA82F58F16D00C22A7D /* Montserrat-BoldItalic.ttf */,
+				A8D20BA92F58F16D00C22A7D /* Montserrat-ExtraBold.ttf */,
+				A8D20BAA2F58F16D00C22A7D /* Montserrat-ExtraBoldItalic.ttf */,
+				A8D20BAB2F58F16D00C22A7D /* Montserrat-ExtraLight.ttf */,
+				A8D20BAC2F58F16D00C22A7D /* Montserrat-ExtraLightItalic.ttf */,
+				A8D20BAD2F58F16D00C22A7D /* Montserrat-Italic.ttf */,
+				A8D20BAE2F58F16D00C22A7D /* Montserrat-Light.ttf */,
+				A8D20BAF2F58F16D00C22A7D /* Montserrat-LightItalic.ttf */,
+				A8D20BB02F58F16D00C22A7D /* Montserrat-Medium.ttf */,
+				A8D20BB12F58F16D00C22A7D /* Montserrat-MediumItalic.ttf */,
+				A8D20BB22F58F16D00C22A7D /* Montserrat-Regular.ttf */,
+				A8D20BB32F58F16D00C22A7D /* Montserrat-SemiBold.ttf */,
+				A8D20BB42F58F16D00C22A7D /* Montserrat-SemiBoldItalic.ttf */,
+				A8D20BB52F58F16D00C22A7D /* Montserrat-Thin.ttf */,
+				A8D20BB62F58F16D00C22A7D /* Montserrat-ThinItalic.ttf */,
+			);
+			path = static;
+			sourceTree = "<group>";
+		};
+		A8D20BBC2F58F16D00C22A7D /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20BB72F58F16D00C22A7D /* static */,
+				A8D20BB82F58F16D00C22A7D /* Montserrat-Italic-VariableFont_wght.ttf */,
+				A8D20BB92F58F16D00C22A7D /* Montserrat-VariableFont_wght.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
+		A8D20BCD2F58F16D00C22A7D /* static */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20BBD2F58F16D00C22A7D /* Nunito-Black.ttf */,
+				A8D20BBE2F58F16D00C22A7D /* Nunito-BlackItalic.ttf */,
+				A8D20BBF2F58F16D00C22A7D /* Nunito-Bold.ttf */,
+				A8D20BC02F58F16D00C22A7D /* Nunito-BoldItalic.ttf */,
+				A8D20BC12F58F16D00C22A7D /* Nunito-ExtraBold.ttf */,
+				A8D20BC22F58F16D00C22A7D /* Nunito-ExtraBoldItalic.ttf */,
+				A8D20BC32F58F16D00C22A7D /* Nunito-ExtraLight.ttf */,
+				A8D20BC42F58F16D00C22A7D /* Nunito-ExtraLightItalic.ttf */,
+				A8D20BC52F58F16D00C22A7D /* Nunito-Italic.ttf */,
+				A8D20BC62F58F16D00C22A7D /* Nunito-Light.ttf */,
+				A8D20BC72F58F16D00C22A7D /* Nunito-LightItalic.ttf */,
+				A8D20BC82F58F16D00C22A7D /* Nunito-Medium.ttf */,
+				A8D20BC92F58F16D00C22A7D /* Nunito-MediumItalic.ttf */,
+				A8D20BCA2F58F16D00C22A7D /* Nunito-Regular.ttf */,
+				A8D20BCB2F58F16D00C22A7D /* Nunito-SemiBold.ttf */,
+				A8D20BCC2F58F16D00C22A7D /* Nunito-SemiBoldItalic.ttf */,
+			);
+			path = static;
+			sourceTree = "<group>";
+		};
+		A8D20BD22F58F16D00C22A7D /* Nunito */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20BCD2F58F16D00C22A7D /* static */,
+				A8D20BCE2F58F16D00C22A7D /* Nunito-Italic-VariableFont_wght.ttf */,
+				A8D20BCF2F58F16D00C22A7D /* Nunito-VariableFont_wght.ttf */,
+			);
+			path = Nunito;
+			sourceTree = "<group>";
+		};
+		A8F45AD22F64C26F007B51BA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A8F45AD32F64C273007B51BA /* ProfileManager.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		447806D02C9090F600B2D181 /* Fanclub-Proto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447806DF2C9090F700B2D181 /* Build configuration list for PBXNativeTarget "Fanclub-Proto" */;
+			buildPhases = (
+				447806CD2C9090F600B2D181 /* Sources */,
+				447806CE2C9090F600B2D181 /* Frameworks */,
+				447806CF2C9090F600B2D181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fanclub-Proto";
+			productName = "Fanclub-Proto";
+			productReference = 447806D12C9090F600B2D181 /* Fanclub-Proto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		447806C92C9090F600B2D181 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					447806D02C9090F600B2D181 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 447806CC2C9090F600B2D181 /* Build configuration list for PBXProject "Fanclub-Proto" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 447806C82C9090F600B2D181;
+			packageReferences = (
+				44B944832F5A0176002789F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			productRefGroup = 447806D22C9090F600B2D181 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				447806D02C9090F600B2D181 /* Fanclub-Proto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		447806CF2C9090F600B2D181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8D20BD32F58F16D00C22A7D /* Nunito-VariableFont_wght.ttf in Resources */,
+				A8D20BD42F58F16D00C22A7D /* Montserrat-SemiBold.ttf in Resources */,
+				A8D20BD52F58F16D00C22A7D /* Montserrat-ThinItalic.ttf in Resources */,
+				A8D20BD62F58F16D00C22A7D /* Montserrat-ExtraBold.ttf in Resources */,
+				A8D20BD72F58F16D00C22A7D /* Nunito-Medium.ttf in Resources */,
+				A8D20BD82F58F16D00C22A7D /* Nunito-MediumItalic.ttf in Resources */,
+				A8D20BD92F58F16D00C22A7D /* Montserrat-Black.ttf in Resources */,
+				A8D20BDA2F58F16D00C22A7D /* Montserrat-Thin.ttf in Resources */,
+				A8D20BDB2F58F16D00C22A7D /* Montserrat-LightItalic.ttf in Resources */,
+				A8D20BDC2F58F16D00C22A7D /* Nunito-SemiBoldItalic.ttf in Resources */,
+				A8D20BDE2F58F16D00C22A7D /* Montserrat-Italic-VariableFont_wght.ttf in Resources */,
+				A8D20BDF2F58F16D00C22A7D /* Nunito-LightItalic.ttf in Resources */,
+				A8D20BE02F58F16D00C22A7D /* Montserrat-Bold.ttf in Resources */,
+				A8D20BE12F58F16D00C22A7D /* Nunito-BoldItalic.ttf in Resources */,
+				A8D20BE22F58F16D00C22A7D /* Montserrat-VariableFont_wght.ttf in Resources */,
+				A8D20BE42F58F16D00C22A7D /* Montserrat-BlackItalic.ttf in Resources */,
+				A8D20BE52F58F16D00C22A7D /* Nunito-ExtraBoldItalic.ttf in Resources */,
+				A8D20BE62F58F16D00C22A7D /* Nunito-ExtraBold.ttf in Resources */,
+				A8D20BE72F58F16D00C22A7D /* Nunito-Light.ttf in Resources */,
+				A8D20BE82F58F16D00C22A7D /* Nunito-Regular.ttf in Resources */,
+				A8D20BE92F58F16D00C22A7D /* Montserrat-MediumItalic.ttf in Resources */,
+				A8D20BEA2F58F16D00C22A7D /* Montserrat-Regular.ttf in Resources */,
+				A8D20BEB2F58F16D00C22A7D /* Montserrat-Medium.ttf in Resources */,
+				A8D20BEC2F58F16D00C22A7D /* Nunito-ExtraLight.ttf in Resources */,
+				A8D20BED2F58F16D00C22A7D /* Montserrat-ExtraLight.ttf in Resources */,
+				A8D20BEE2F58F16D00C22A7D /* Montserrat-Italic.ttf in Resources */,
+				A8D20BEF2F58F16D00C22A7D /* Montserrat-Light.ttf in Resources */,
+				A8D20BF12F58F16D00C22A7D /* Nunito-ExtraLightItalic.ttf in Resources */,
+				A8D20BF22F58F16D00C22A7D /* Nunito-Italic-VariableFont_wght.ttf in Resources */,
+				A8D20BF32F58F16D00C22A7D /* Montserrat-BoldItalic.ttf in Resources */,
+				A8D20BF42F58F16D00C22A7D /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				A8D20BF52F58F16D00C22A7D /* Nunito-Black.ttf in Resources */,
+				A8D20BF72F58F16D00C22A7D /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				A8D20BF82F58F16D00C22A7D /* Nunito-Italic.ttf in Resources */,
+				A8D20BF92F58F16D00C22A7D /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				A8D20BFA2F58F16D00C22A7D /* Nunito-Bold.ttf in Resources */,
+				A8D20BFB2F58F16D00C22A7D /* Nunito-SemiBold.ttf in Resources */,
+				A8D20BFC2F58F16D00C22A7D /* Nunito-BlackItalic.ttf in Resources */,
+				444D9ABD2C9108F800D9B79D /* Launch Screen.storyboard in Resources */,
+				447806DC2C9090F700B2D181 /* Preview Assets.xcassets in Resources */,
+				447806D92C9090F700B2D181 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		447806CD2C9090F600B2D181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8B33AE92F6928E800C9A949 /* EditProfileView.swift in Sources */,
+				A8CA869D2F63D8DF00B5CE99 /* User.swift in Sources */,
+				A81132E82F623EF9000EEE29 /* APIManager.swift in Sources */,
+				A886817C2F5B3E6600D30045 /* GoogleSignIn.swift in Sources */,
+				A8CA84252F63D88F00B5CE99 /* APIDecoders.swift in Sources */,
+				A8F45AD42F64C274007B51BA /* ProfileManager.swift in Sources */,
+				A8F458592F6473D1007B51BA /* APIResponseSchemas.swift in Sources */,
+				44B9448E2F5A094B002789F1 /* AuthVM.swift in Sources */,
+				44B944922F5A3245002789F1 /* DiscoverVM.swift in Sources */,
+				A81132E62F623EF5000EEE29 /* APIRoutes.swift in Sources */,
+				444D9ABB2C9104CE00D9B79D /* ProfileView.swift in Sources */,
+				44715C9D2C94BDB900FDC183 /* AddPostView.swift in Sources */,
+				A8B33AEC2F69290B00C9A949 /* ProfileVM.swift in Sources */,
+				44B944892F5A07CC002789F1 /* AuthAddInfoView.swift in Sources */,
+				447806D72C9090F600B2D181 /* ContainerTabView.swift in Sources */,
+				A8D20BA12F58EAD600C22A7D /* AuthView.swift in Sources */,
+				A8F4585B2F64A44C007B51BA /* APIRequestSchemas.swift in Sources */,
+				44ED14142C92202200A347C5 /* SearchExpandedView.swift in Sources */,
+				44D026072C99F4040086CFB8 /* SettingsPopupSubviews.swift in Sources */,
+				44ED140D2C91F6CB00A347C5 /* MessagesView.swift in Sources */,
+				447806D52C9090F600B2D181 /* Fanclub_ProtoApp.swift in Sources */,
+				A8D2162E2F6113B600E43617 /* AuthCreatorSignupView.swift in Sources */,
+				444D9AAE2C90C14800D9B79D /* GlobalVars.swift in Sources */,
+				A8B33AEE2F692B1000C9A949 /* EditInfluencerProfileView.swift in Sources */,
+				44ED140F2C921C8600A347C5 /* SettingsView.swift in Sources */,
+				44ED14162C92384300A347C5 /* NewMeetingSlotView.swift in Sources */,
+				A85CCB382F6B61A300ABA32F /* GlobalFuncs.swift in Sources */,
+				444D9AB52C9104A400D9B79D /* HomeView.swift in Sources */,
+				44B9448B2F5A0815002789F1 /* AuthOTPLoginView.swift in Sources */,
+				444D9AB02C90E7E100D9B79D /* NotificationsView.swift in Sources */,
+				444D9AB72C9104B200D9B79D /* DiscoverView.swift in Sources */,
+				444D9AB92C9104C200D9B79D /* BookingsView.swift in Sources */,
+				44B944902F5A3120002789F1 /* Creator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		447806DD2C9090F700B2D181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		447806DE2C9090F700B2D181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		447806E02C9090F700B2D181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fanclub-Proto/Fanclub-Proto.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Fanclub-Proto/Preview Content\"";
+				DEVELOPMENT_TEAM = 28Y4ZQ9H4B;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fanclub-Proto/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FanClub;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = house.fanclub.mobileApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		447806E12C9090F700B2D181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fanclub-Proto/Fanclub-Proto.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Fanclub-Proto/Preview Content\"";
+				DEVELOPMENT_TEAM = 28Y4ZQ9H4B;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fanclub-Proto/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FanClub;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = house.fanclub.mobileApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		447806CC2C9090F600B2D181 /* Build configuration list for PBXProject "Fanclub-Proto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447806DD2C9090F700B2D181 /* Debug */,
+				447806DE2C9090F700B2D181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447806DF2C9090F700B2D181 /* Build configuration list for PBXNativeTarget "Fanclub-Proto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447806E02C9090F700B2D181 /* Debug */,
+				447806E12C9090F700B2D181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44B944832F5A0176002789F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44B944842F5A0176002789F1 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44B944832F5A0176002789F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		44B944862F5A0176002789F1 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44B944832F5A0176002789F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 447806C92C9090F600B2D181 /* Project object */;
+}
