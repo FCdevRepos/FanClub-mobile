@@ -42,4 +42,26 @@ struct APIDecoders {
 
         return try decoder.decode(APIResponseSchemas.UserResponseSchema.self, from: data)
     }
+    
+    func decodeSocialMediaAccountsUserResponse(jsonData: String) throws -> APIResponseSchemas.SocialMediaResponseGetUserSchema {
+        guard let data = jsonData.data(using: .utf8) else {
+            throw NSError(domain: "APIDecoders", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid UTF-8 string"])
+        }
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(getFormatter())
+
+        return try decoder.decode(APIResponseSchemas.SocialMediaResponseGetUserSchema.self, from: data)
+    }
+    
+    func decodeSocialMediaAccountsVerifyResponse(jsonData: String) throws -> APIResponseSchemas.SocialMediAccountsVerifySchema {
+        guard let data = jsonData.data(using: .utf8) else {
+            throw NSError(domain: "APIDecoders", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid UTF-8 string"])
+        }
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(getFormatter())
+
+        return try decoder.decode(APIResponseSchemas.SocialMediAccountsVerifySchema.self, from: data)
+    }
 }

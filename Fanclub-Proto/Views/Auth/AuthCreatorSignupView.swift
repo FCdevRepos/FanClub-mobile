@@ -56,8 +56,8 @@ struct AuthCreatorSignupView: View {
                             if authorizationToken != "" {
                                 print("Apple Auth Success")
                                 Task {
-                                    try await vm.socialLogin(token: authorizationToken, name: name, email: email, platform: "apple") { responseCode in
-                                        switch responseCode {
+                                    try await vm.socialLogin(token: authorizationToken, name: name, email: email, platform: "apple", influencer: true) { (code, response) in
+                                        switch code {
                                         case 200:
                                             auth = true
                                             dismiss()
@@ -66,15 +66,39 @@ struct AuthCreatorSignupView: View {
                                             finishSignupInfo = true
                                             auth = true
                                             dismiss()
+                                        case 400:
+                                            //check if response is incorrect influencer type
+                                            //try again
+                                            Task {
+                                                print("Response: \(response)")
+                                                if let respData = (response).data(using: .utf8) {
+                                                    let decoded = try JSONDecoder().decode(JSONResponseAPI.self, from: respData)
+                                                    if ((decoded.message ?? "") == "User already registered as influencer.") || ((decoded.message ?? "") == "User already registered as Fan.") { //check what opposite error would be
+                                                        try await vm.socialLogin(token: authorizationToken, name: name, email: email, platform: "apple", influencer: false) { c2, r2 in
+                                                            switch c2 {
+                                                            case 200:
+                                                                auth = true
+                                                                dismiss()
+                                                            case 201:
+                                                                signupInfoName = name
+                                                                finishSignupInfo = true
+                                                                auth = true
+                                                                dismiss()
+                                                            case 400:
+                                                                vm.socialAuthFailed = true
+                                                            default:
+                                                                vm.socialAuthFailed = true
+                                                            }
+                                                        }
+                                                    } else {
+                                                        vm.socialAuthFailed = true
+                                                    }
+                                                } else {
+                                                    vm.socialAuthFailed = true
+                                                }
+                                            }
                                         default: break
                                         }
-//                                        if responseCode == 201 {
-//                                            path.append(AppRoute.signupAddInfo(name: name, email: email, phone: "", birthday: ""))
-//                                            //TODO: add phone (from VM), birthday (from google?)
-//                                        } else if responseCode == 200 {
-//                                            //we should navigate back to landing so it will then use auth=true to go to Discover?
-//                                            dismiss()
-//                                        }
                                     }
                                 }
                             } else {
@@ -89,12 +113,12 @@ struct AuthCreatorSignupView: View {
                     .frame(maxWidth: 280, minHeight: 50, maxHeight: 50)
                     .clipShape(Capsule())
                     .shadow(color: Color.black.opacity(0.35), radius: 8, x: 0, y: 6)
-                    .padding(.bottom, 8)
+                    .padding(.vertical, 8)
                     .padding(.top)
-                    .onTapGesture {
-                        print("Tapped apple sign in")
-                    }
                     .disabled(vm.isLoading)
+//                    .onTapGesture {
+//                        print("Tapped apple sign in")
+//                    }
                     
                     //Google Sign In Button
                     Button {
@@ -103,8 +127,8 @@ struct AuthCreatorSignupView: View {
                             case .success(let info):
                                 print("Google Auth success")
                                 Task {
-                                    try await vm.socialLogin(token: info[0], name: info[1], email: info[2], platform: "google") { responseCode in
-                                        switch responseCode {
+                                    try await vm.socialLogin(token: info[0], name: info[1], email: info[2], platform: "google", influencer: true) { (code, response) in
+                                        switch code {
                                         case 200:
                                             auth = true
                                             dismiss()
@@ -113,15 +137,39 @@ struct AuthCreatorSignupView: View {
                                             finishSignupInfo = true
                                             auth = true
                                             dismiss()
+                                        case 400:
+                                            //check if response is incorrect influencer type
+                                            //try again
+                                            Task {
+                                                print("Response: \(response)")
+                                                if let respData = (response).data(using: .utf8) {
+                                                    let decoded = try JSONDecoder().decode(JSONResponseAPI.self, from: respData)
+                                                    if ((decoded.message ?? "") == "User already registered as influencer.") || ((decoded.message ?? "") == "User already registered as Fan.") { //check what opposite error would be
+                                                        try await vm.socialLogin(token: info[0], name: info[1], email: info[2], platform: "google", influencer: false) { c2, r2 in
+                                                            switch c2 {
+                                                            case 200:
+                                                                auth = true
+                                                                dismiss()
+                                                            case 201:
+                                                                signupInfoName = info[1]
+                                                                finishSignupInfo = true
+                                                                auth = true
+                                                                dismiss()
+                                                            case 400:
+                                                                vm.socialAuthFailed = true
+                                                            default:
+                                                                vm.socialAuthFailed = true
+                                                            }
+                                                        }
+                                                    } else {
+                                                        vm.socialAuthFailed = true
+                                                    }
+                                                } else {
+                                                    vm.socialAuthFailed = true
+                                                }
+                                            }
                                         default: break
                                         }
-//                                        if responseCode == 201 {
-//                                            path.append(AppRoute.signupAddInfo(name: info[1], email: info[2], phone: "", birthday: ""))
-//                                            //TODO: add phone (from VM), birthday (from google?)
-//                                        } else if responseCode == 200 {
-//                                            //we should navigate back to landing so it will then use auth=true to go to Discover?
-//                                            dismiss()
-//                                        }
                                     }
                                 }
                             case .failure(let error):
@@ -212,7 +260,9 @@ struct AuthCreatorSignupView: View {
             }
             .ignoresSafeArea(.keyboard)
             .animation(.easeInOut(duration: 0.2), value: vm.inviteCode)
-        }.navigationBarBackButtonHidden().onTapGesture { if !vm.codeAccepted { hideKeyboard() } }
+        }.navigationBarBackButtonHidden()
+//            .onTapGesture { if !vm.codeAccepted { hideKeyboard() }
+//            .onTapGesture { hideKeyboard() }
             .onChange(of: vm.inviteCode) {
                 vm.codeMessage = ""
             }
@@ -220,6 +270,11 @@ struct AuthCreatorSignupView: View {
                 Button("Ok", role: .cancel) {}
             } message: {
                 Text("Please try again.")
+            }
+            .onChange(of: vm.navBack) {
+                if vm.navBack {
+                    dismiss()
+                }
             }
     }
 }

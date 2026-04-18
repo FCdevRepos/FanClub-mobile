@@ -49,15 +49,16 @@ class ProfileManager: ObservableObject {
 ////        }
 //    }
 
-    func loadProfile(completion: @escaping (Int) -> Void) async throws {
+    func loadProfile(uid: Int, completion: @escaping (Int) -> Void) async throws {
         do {
-            if userId != 0 {
-                let response = try await api.makePublicAPICallWithFullUrlGetStatus(url: "\(GlobalVars.APIbaseURL)users/\(userId)", httpMethod: "GET", requestData: nil)
+            print("in load profile, parameter is \(uid)")
+            if uid != 0 {
+                let response = try await api.makePublicAPICallWithFullUrlGetStatus(url: "\(GlobalVars.APIbaseURL)users/\(uid)", httpMethod: "GET", requestData: nil)
                 switch response.statusCode {
                 case 200:
                     let user = try APIDecoders().decodeUserResponse(jsonData: response.response ?? "")
                     profile = user.data?.user
-                    userId = user.data?.user?.id ?? 0
+//                    userId = user.data?.user?.id ?? 0
                     completion(200)
                 default:
                     print("Error loading profile")
@@ -74,14 +75,14 @@ class ProfileManager: ObservableObject {
         }
     }
     
-    func updateProfile(requestData: [String : Any], completion: @escaping (Int) -> Void) async throws {
+    func updateProfile(uid: Int, requestData: [String : Any], completion: @escaping (Int) -> Void) async throws {
         do {
-            if userId != 0 {
+            if uid != 0 {
                 let response = try await api.makeAuthedAPICallWithFullUrlGetStatus(url: "\(GlobalVars.APIbaseURL)users/", httpMethod: "PATCH", requestData: requestData)
                 switch response.statusCode {
                 case 200:
                     print(response)
-                    try await loadProfile { loadComp in print(loadComp) }
+                    try await loadProfile(uid: uid) { loadComp in print(loadComp) }
                     completion(200)
                 default:
                     print("Error updating profile")

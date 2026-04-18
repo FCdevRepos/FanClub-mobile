@@ -11,6 +11,8 @@ import UIKit
 struct ContainerTabView: View {
     @Environment(\.presentationMode) var pm
     
+    private let profileManager = ProfileManager.shared
+    
     @State var tab = "home"
     
     var body: some View {
@@ -25,10 +27,12 @@ struct ContainerTabView: View {
                     .tabItem {
                         Image(tab == "search" ? "SearchSel" : "Search")
                     }
-                BookingsView().tag("bookings")
-                    .tabItem {
-                        Image(tab == "bookings" ? "CalendarSel" : "Calendar")
-                    }
+                if profileManager.profile?.influencer ?? false {
+                    SlotsView().tag("bookings")
+                        .tabItem {
+                            Image(tab == "bookings" ? "CalendarSel" : "Calendar")
+                        }
+                }
                 ProfileView().tag("profile")
                     .tabItem {
                         Image(tab == "profile" ? "ProfileSel" : "Profile")

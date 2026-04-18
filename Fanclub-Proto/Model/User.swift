@@ -24,6 +24,7 @@ struct User: Hashable, Codable {
     let coverpic: String?
     let govtID: String?
     let title: String?
+//    let title: Int?
     let active: Bool?
     let mature_content: Bool?
     let verified: Bool?
@@ -33,6 +34,7 @@ struct User: Hashable, Codable {
     let is_hidden: Bool?
     let updated: Bool?
     let is_deleted: Bool?
+    let is_brand: Bool?
     let notification: Bool?
     let invite_code_ctr: Int?
     let other_works: String?
@@ -48,4 +50,11 @@ struct User: Hashable, Codable {
     let handle_platform_user_popular_on: String?
     let social_media_platform_to_verify: String?
     let created_at: String?     // Date?
+}
+
+struct SocialMediaUser: Hashable, Codable {
+    let user_id: Int?
+    let platform: String?
+    let link: String?
+    let id: Int?
 }

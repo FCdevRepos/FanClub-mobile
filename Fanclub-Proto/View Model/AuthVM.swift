@@ -34,14 +34,27 @@ class AuthVM: ObservableObject {
     @Published var otpStep = 1
     
     //Additional Info
+    @Published var addInfoStep = 1
+    //Step 1
     @Published var name = ""
     @Published var country = ""
     @Published var email = ""
     @Published var birthday: Date = Date.now
     @Published var addedBirthday = false
+    @Published var showAgeError = false
+    
+    //Step 1 (Basic user) or 2 (Creator)
+    @Published var username = ""
+    
+    //Step 2
+    @Published var isBrand = false
+    @Published var displayName = ""
     @Published var updateFailure = false
     @Published var passButton = false
     
+    //Login failed influencer value wrong
+    @Published var needsToNav = false
+    @Published var navBack = false
     
     //FUNCTIONS
     func verifyInviteCode() async throws {
@@ -70,25 +83,63 @@ class AuthVM: ObservableObject {
         }
     }
     
-    func socialLogin(token: String, name: String, email: String, platform: String, completion: @escaping (Int) -> Void)  async throws {
+    func socialLogin(token: String, name: String, email: String, platform: String, influencer: Bool, completion: @escaping (Int, String) -> Void) async throws {
         isLoading = true
         do {
-            //when is "influencer" true? Ask Alex
-            let rqData = ["token": token, "full_name": name, "email": email, "platform": platform, "influencer": false, "invite_code": inviteCode] as [String : Any]
+            //influencer is true if they sign up with an invite code
+            //in the backend we should set verified to true as well in this case
+            let rqData = ["token": token, "full_name": name, "email": email, "platform": platform, "influencer": influencer, "invite_code": inviteCode] as [String : Any]
             let response = try await APIManager().makePublicAPICallWithFullUrlGetStatus(url: "\(GlobalVars.APIbaseURL)auth/social-login", httpMethod: "POST", requestData: rqData)
             switch response.statusCode {
             case 200: //log in
                 try await loginUser(response: response.response ?? "")
-                if !socialAuthFailed { completion(200) }
+                if !socialAuthFailed { completion(200, "") }
             case 201: //send to AddAdditionalInfoView to complete profile (name, birthday, email?, phone?)
                 try await createUser(response: response.response ?? "")
-                if !socialAuthFailed { completion(201) }
-            case 400, 500: //error
+                if !socialAuthFailed { completion(201, "") }
+            case 400: //error
+                //check if user is already influencer, or if tried to sign in as one and isnt, (error msg), if so retry sign in with influencer = !influencer
+                completion(400, response.response ?? "")
+//                print("Response: \(response.response ?? "")")
+//                if let respData = (response.response ?? "").data(using: .utf8) {
+//                    let decoded = try JSONDecoder().decode(JSONResponseAPI.self, from: respData)
+//                    if ((decoded.message ?? "") == "User already registered as influencer.") || ((decoded.message ?? "") == "User already registered as Fan.") { //check what opposite error would be
+//                        needsToNav = true
+//                        try await socialLogin(token: token, name: name, email: email, platform: platform, influencer: !influencer) { resp in
+//                            switch resp {
+//                            case 200:
+////                                self.auth = true
+////                                self.navBack = true
+//                                try await loginUser(response: response.response ?? "")
+//                                if !socialAuthFailed { completion(200) }
+//                            case 201:
+////                                self.signupInfoName = name
+////                                self.finishSignupInfo = true
+////                                self.auth = true
+////                                self.navBack = true
+//                                try await createUser(response: response.response ?? "")
+//                                if !socialAuthFailed { completion(201) }
+//                            default:
+////                                self.socialAuthFailed = true
+////                                self.needsToNav = false
+////                                self.navBack = false
+//                                completion(400)
+//                            }
+//                        }
+//                    } else {
+//                        socialAuthFailed = true
+//                        completion(400, "")
+//                    }
+//                } else {
+//                    socialAuthFailed = true
+//                    completion(400, "")
+//                }
+            case 500: //server error
                 socialAuthFailed = true
-                completion(400)
+                completion(400, "")
             default: //error
                 socialAuthFailed = true
-                completion(400)
+                completion(400, "")
             }
         } catch {
             print(error.localizedDescription)
@@ -126,7 +177,10 @@ class AuthVM: ObservableObject {
     
     func updateProfile() async throws { //call from AuthAddInfoView to set initial profile fields
         //name, country, date of birth
+        showAgeError = false
         isLoading = true
+        
+        if !check18YO() { showAgeError = true; return }
         
         var rqData: [String : Any] = [:]
         rqData["user_id"] = userId
@@ -152,8 +206,14 @@ class AuthVM: ObservableObject {
             }
         }
         
+        if displayName != "" { rqData["display_name"] = displayName }
+        
+        rqData["username"] = username
+        
+        rqData["is_brand"] = isBrand
+        
         do {
-            try await profileManager.updateProfile(requestData: rqData) { comp in
+            try await profileManager.updateProfile(uid: userId, requestData: rqData) { comp in
                 print("update completion: \(comp)")
                 if comp == 200 {
                     self.signupInfoName = ""
@@ -204,14 +264,11 @@ class AuthVM: ObservableObject {
             let decoded = try APIDecoders().decodeLoginResponse(jsonData: response)
             let user = decoded.data?.user
             let token = decoded.data?.token
-            
-            //TODO: we need to save the user to the ProfileManager profile
-            try await profileManager.loadProfile { comp in
-                if comp != 200 {
-                    print("failed to load profile")
-                    loadedProfile = false
-                }
-            }
+//            
+//            print("old userId: \(userId)")
+//            userId = user?.id ?? 0
+////            UserDefaults.standard.set(user?.id ?? 0, forKey: "userId")
+//            print("new userId: \(userId)")
             
             if let user, let token = token {
                 print("User id: \(user.id ?? 0)")
@@ -219,14 +276,25 @@ class AuthVM: ObservableObject {
                 if let tok = token["access_token"] {
                     print("Token: \(tok)")
                     accessToken = tok
-                    return loadedProfile    //return true normally but now return this
                 } else {
                     print("Could not retrieve access token")
-                    return false
+                    loadedProfile = false
                 }
             } else {
-                return false
+                loadedProfile = false
             }
+            
+            //right now profileManager is not using new userId to load profile
+            
+            //TODO: we need to save the user to the ProfileManager profile
+            try await profileManager.loadProfile(uid: userId) { comp in
+                if comp != 200 {
+                    print("failed to load profile")
+                    loadedProfile = false
+                }
+            }
+            
+            return loadedProfile
         } catch {
             print(error.localizedDescription)
             socialAuthFailed = true
@@ -273,13 +341,21 @@ class AuthVM: ObservableObject {
     }
     
     func checkAddInfoButtonEnabled() -> Bool {
-        return name != "" && addedBirthday && checkOfAge()
+        //split up for step
+        if addInfoStep == 1 {
+            if (profileManager.profile?.influencer ?? false) {
+                return name != "" && addedBirthday && check18YO() && country != ""
+            } else {
+                return name != "" && addedBirthday && check18YO() && country != "" && username != ""
+            }
+        } else {
+            return username != ""
+        }
     }
     
-    func checkOfAge() -> Bool {
-        
-        //TODO: if not 18, return false
-        return true
+    
+    func check18YO() -> Bool {
+        return (Calendar.current.date(byAdding: .year, value: -18, to: Date.now) ?? Date.now) >= birthday
     }
 }
 
@@ -287,5 +363,13 @@ struct OTPBody: Codable {
     let mobile: String
     let otp: Int
     let code: String
+}
+
+struct JSONResponseAPI: Codable {
+    let success: Bool?
+    let error: Bool?
+    let message: String?
+    let data: JSONValue?
+    let status_code: Int?
 }
 

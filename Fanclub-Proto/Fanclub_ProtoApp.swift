@@ -63,7 +63,7 @@ struct Fanclub_ProtoApp: App {
                             Spacer()
                             Image(.FANCLUB)
                                 .resizable()
-                                .frame(width: 280, height: 200)
+                                .frame(width: 280, height: 170)
                                 .padding()
                             ProgressView()
                                 .progressViewStyle(.circular)
@@ -77,6 +77,7 @@ struct Fanclub_ProtoApp: App {
                         AuthView()
                     } else {
                         if finishSignupInfo {
+                            //set isCreator to true if (profileManager.profile?.influencer ?? false) == true
                             AuthAddInfoView()
                         } else {
                             ContainerTabView()
@@ -86,7 +87,7 @@ struct Fanclub_ProtoApp: App {
             }.onAppear {
                 isLoading = true
                 Task {
-                    try await profileManager.loadProfile { comp in
+                    try await profileManager.loadProfile(uid: userId) { comp in
                         //this endpoint doesnt need an accessToken so it wont really know if we are truly logged in or not.
                         //maybe try calling one that does?
                         if comp != 200 {

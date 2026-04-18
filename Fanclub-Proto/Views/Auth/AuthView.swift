@@ -12,6 +12,7 @@ import GoogleSignInSwift
 
 struct AuthView: View {
     @AppStorage("auth") var auth = false
+    @AppStorage("userId") var userId = 0
     @AppStorage("finishSignupInfo") var finishSignupInfo = false
     @AppStorage("signupInfoName") var signupInfoName = ""
 
@@ -49,21 +50,48 @@ struct AuthView: View {
                         if authorizationToken != "" {
                             print("Apple Auth Success: ")
                             Task {
-                                try await vm.socialLogin(token: authorizationToken, name: name, email: email, platform: "apple") { responseCode in
-                                    switch responseCode {
+                                //MARK: if the user is already registered as an influencer this will fail and say they are already an influencer. two options:
+                                    //retry login with influencer true, or save influencer as a user default and use that? only issue is if they have multiple accounts that may fail as well.
+                                    //retry is probably better option
+                                try await vm.socialLogin(token: authorizationToken, name: name, email: email, platform: "apple", influencer: false) { (code, response) in
+                                    switch code {
                                     case 200:
                                         auth = true
                                     case 201:
                                         signupInfoName = name //set name to pass into additional info view
                                         finishSignupInfo = true
                                         auth = true
+                                    case 400:
+                                        //check if response is incorrect influencer type
+                                        //try again
+                                        Task {
+                                            print("Response: \(response)")
+                                            if let respData = (response).data(using: .utf8) {
+                                                let decoded = try JSONDecoder().decode(JSONResponseAPI.self, from: respData)
+                                                if ((decoded.message ?? "") == "User already registered as influencer.") || ((decoded.message ?? "") == "User already registered as Fan.") { //check what opposite error would be
+                                                    try await vm.socialLogin(token: authorizationToken, name: name, email: email, platform: "apple", influencer: true) { c2, r2 in
+                                                        switch c2 {
+                                                        case 200:
+                                                            auth = true
+                                                        case 201:
+                                                            signupInfoName = name
+                                                            finishSignupInfo = true
+                                                            auth = true
+                                                        case 400:
+                                                            vm.socialAuthFailed = true
+                                                        default:
+                                                            vm.socialAuthFailed = true
+                                                        }
+                                                    }
+                                                } else {
+                                                    vm.socialAuthFailed = true
+                                                }
+                                            } else {
+                                                vm.socialAuthFailed = true
+                                            }
+                                        }
                                     default: break
                                     }
-//                                    if responseCode == 201 { //new user, add info
-//                                        path.append(AppRoute.signupAddInfo(name: name, email: email, phone: "", birthday: ""))
-//                                        //TODO: add phone (from VM), birthday (from google?)
-//                                    }
-                                    //else if its 200, it will be handled by changing auth to true? (we havent navigated anywhere from landing page so it should)
                                 }
                             }
                         } else {
@@ -77,10 +105,6 @@ struct AuthView: View {
                 .signInWithAppleButtonStyle(.white)
                 .frame(maxWidth: 280, minHeight: 50, maxHeight: 50)
                 .clipShape(Capsule())
-//                .overlay(
-//                    Capsule()
-//                        .stroke(Color.white.opacity(0.15), lineWidth: 1)
-//                )
                 .shadow(color: Color.black.opacity(0.35), radius: 8, x: 0, y: 6)
                 .padding(.vertical, 8)
                 .disabled(vm.isLoading)
@@ -92,21 +116,45 @@ struct AuthView: View {
                         case .success(let info):
                             print("Google Auth success")
                             Task {
-                                try await vm.socialLogin(token: info[0], name: info[1], email: info[2], platform: "google") { responseCode in
-                                    switch responseCode {
+                                try await vm.socialLogin(token: info[0], name: info[1], email: info[2], platform: "google", influencer: false) { (code, response) in
+                                    switch code {
                                     case 200:
                                         auth = true
                                     case 201:
                                         signupInfoName = info[1]
                                         finishSignupInfo = true
                                         auth = true
+                                    case 400:
+                                        //check if response is incorrect influencer type
+                                        //try again
+                                        Task {
+                                            print("Response: \(response)")
+                                            if let respData = (response).data(using: .utf8) {
+                                                let decoded = try JSONDecoder().decode(JSONResponseAPI.self, from: respData)
+                                                if ((decoded.message ?? "") == "User already registered as influencer.") || ((decoded.message ?? "") == "User already registered as Fan.") { //check what opposite error would be
+                                                    try await vm.socialLogin(token: info[0], name: info[1], email: info[2], platform: "google", influencer: true) { c2, r2 in
+                                                        switch c2 {
+                                                        case 200:
+                                                            auth = true
+                                                        case 201:
+                                                            signupInfoName = info[1]
+                                                            finishSignupInfo = true
+                                                            auth = true
+                                                        case 400:
+                                                            vm.socialAuthFailed = true
+                                                        default:
+                                                            vm.socialAuthFailed = true
+                                                        }
+                                                    }
+                                                } else {
+                                                    vm.socialAuthFailed = true
+                                                }
+                                            } else {
+                                                vm.socialAuthFailed = true
+                                            }
+                                        }
                                     default: break
                                     }
-//                                    if responseCode == 201 { //new user, add info
-//                                        path.append(AppRoute.signupAddInfo(name: info[1], email: info[2], phone: "", birthday: ""))
-//                                        //TODO: add phone (from VM), birthday (from google?)
-//                                    }
-//                                    //else if its 200, it will be handled by changing auth to true? (we havent navigated anywhere from landing page so it should)
                                 }
                             }
                         case .failure(let error):
@@ -168,6 +216,9 @@ struct AuthView: View {
 //                    }
 //                }
 //            }
+            .onAppear {
+                print("user id: \(userId)")
+            }
         }
         .alert("Authentication Failed", isPresented: $vm.socialAuthFailed) {
             Button("Ok", role: .cancel) {}

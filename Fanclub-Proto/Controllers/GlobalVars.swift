@@ -11,10 +11,10 @@ import UIKit
 
 class GlobalVars {
     
-    public static let APIbaseURL = "https://python-backend-development.up.railway.app/api/v1/"
+    public static let APIbaseURL = "https://www.fanclub.app/api/v1/"
 //    public static let APIbaseURL = "http://localhost:8081/api/v1/"
 //    public static let APIbaseURL = "http://10.0.0.191:8081/api/v1/"
-//    public static let APIbaseURL = "http://192.168.2.84:8081/api/v1/"
+//    public static let APIbaseURL = "http://192.168.2.77:8081/api/v1/"
     
     public static let textColor = Color(red: 185/255, green: 185/255, blue: 185/255)
     
