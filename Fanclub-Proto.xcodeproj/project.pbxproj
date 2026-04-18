@@ -766,7 +766,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Fanclub-Proto/Fanclub-Proto.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fanclub-Proto/Preview Content\"";
 				DEVELOPMENT_TEAM = 28Y4ZQ9H4B;
 				ENABLE_PREVIEWS = YES;
@@ -787,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 11.2.1;
+				MARKETING_VERSION = 11.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = house.fanclub.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -803,7 +803,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Fanclub-Proto/Fanclub-Proto.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fanclub-Proto/Preview Content\"";
 				DEVELOPMENT_TEAM = 28Y4ZQ9H4B;
 				ENABLE_PREVIEWS = YES;
@@ -824,7 +824,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 11.2.1;
+				MARKETING_VERSION = 11.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = house.fanclub.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

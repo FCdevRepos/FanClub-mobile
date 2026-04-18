@@ -414,15 +414,17 @@ struct VerifySocialMediaView: View {
                                     }
                                 )
                                 
-                                SocialConnectButton(vm: vm, platform: vm.platforms[index], image: vm.images[index], connectedAccount: accountBinding, action: {
-                                    Task {
-                                        print("platform requested: \(vm.platforms[index].lowercased())")
-                                        try await vm.startVerification(platform: vm.platforms[index])
-//                                        try await vm.testPlatformURL(platform: vm.platforms[index])
-                                    }
-                                }, remove: { accountId in
-                                    print("remove account \(accountId)")
-                                })
+                                if vm.platforms[index] != "Twitter" {
+                                    SocialConnectButton(vm: vm, platform: vm.platforms[index], image: vm.images[index], connectedAccount: accountBinding, action: {
+                                        Task {
+                                            print("platform requested: \(vm.platforms[index].lowercased())")
+                                            try await vm.startVerification(platform: vm.platforms[index])
+                                            //                                        try await vm.testPlatformURL(platform: vm.platforms[index])
+                                        }
+                                    }, remove: { accountId in
+                                        print("remove account \(accountId)")
+                                    })
+                                }
 //                                .overlay(alignment: .topLeading) {
 //                                    Button {
 //                                        print("requested remove account \(accountBinding?.id ?? 0)")
